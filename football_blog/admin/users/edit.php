@@ -22,22 +22,7 @@
 
 <body>
 <header>
-            <a class="Logo" href="<?php echo BASE_URL . '/index.php';?>">
-                <h1 class="logo-text"><span>Football</span>CrayZ</h1>
-                </a>
-            <i class="fa fa-bars menu-toggle"></i>
-            <ul class="navigation">
-             
-                <li><a href="#">
-                        <i class= "fa fa-user"></i>
-                        William Morgan
-                        <i class="fa fa-chevron-down" style="font-size: 4mm;"></i>
-                    </a>
-                    <ul>
-
-                        <li><a href="#" class="logout">Logout</a></li>
-                    </ul>
-                </li>
+<?php include(ROOT_PATH . "/app/includes/adminHeader.php"); ?>
         </header>
 
 
@@ -45,36 +30,48 @@
 <!--admin wrap start-->
 <div class="admin-wrapper">
     <!--left sidebar-->
-    <div class="left-sidebar">
-        <ul>
-        <li><a href="<?php echo BASE_URL . '/admin/posts/index.php';?>">Manage posts</a></li>
-            <li><a href="<?php echo BASE_URL . '/admin/users/index.php';?>">Manage users</a></li>
-            <li><a href="<?php echo BASE_URL . '/admin/topics/index.php';?>">Manage topics</a></li>
-    </div>
+    <?php include(ROOT_PATH . "/app/includes/adminSidebar.php"); ?>
     <!-- left sidebar-->
     <!--Admin content-->
     <div class="admin-content">
-        <div class="button group">
-            <a href="create.php" class="btn btn-big contact-btn">Add topics</a>
-            <a href="index.php" class="btn btn-big contact-btn">manage topics</a>
-        </div>
-        <div class="content">
-            <h2 class="page-title"> admin-Edit Topics</h2>
-            <form action="create.html" method="post">
-                <div>
-                    <label>Name</label>
-                    <input type="text" name="name" class="text-input">
+    <div class="admin-content">
+           <div class ="button group">
+               <a href="create.php" class="btn btn-big contact-btn">Add Users</a>
+               <a href="index.php" class ="btn btn-big contact-btn">manage users</a>
+           </div>
+           <div class="content">
+               <h2 class="page-title"> admin-Add User</h2>
+               <form action="edit.php" method="post">
+                   <div>
                     <div>
-                        <label>Description</label>
-                        <textarea name="Description" id="body"></textarea>
+                        <label>Username</label>
+                        <input type="text" name="username" class="text-input">
                     </div>
-                </div>
-                <div>
-                    <button type="submit" class="btn btn-big">Edit Topic</button>
-                </div>
-            </form>
+                    <div>
+                        <label>Email</label>
+                        <input type="email" name="email" class="text-input">
+                    </div>
+                    <div>
+                        <label>Password</label>
+                        <input type="password" name="password" class="text-input">
+                    </div>
+                    <div>
+                        <label> Repeat Password</label>
+                        <input type="password" name="passwordconf" class="text-input">
+                    </div>
+                    <div>
+                        <label>Role</label>
+                        <select name="role" class="text-input"> 
+                            <option value="User">User</option>
+                            <option value="Admin">Admin</option>
+                        </select>
+                    </div>
+                    <div>
+                       <button type="submit" class="btn btn-big">Update user</button>
+                   </div>
+               </form>
+           </div>
         </div>
-    </div>
     <!-- // admin content-->
 
 
